@@ -1,5 +1,15 @@
-.st-inner
+.st-wrap
+	min-width: 320px
+	+smooth-font
+	box-sizing: border-box
+	background-color: $white 
+	*, *:before, *:after
+	    box-sizing: inherit
+.st-inner,
+.st-inner-md
 	margin: 0 auto
 	padding: 0 15px
 	max-width: 1024px
 	+clr
+.st-inner-md
+    max-width: 1200px

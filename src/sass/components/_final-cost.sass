@@ -1,0 +1,179 @@
+.st-final-cost
+	padding: 29px 0
+	color: $black 
+	font-family: 'Roboto', sans-serif
+	font-weight: 400 
+	font-size: 14px
+	background-color: #F7F7F7 
+	min-height: 137px
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	&__inner
+		width: 100%
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+	&__left,
+	&__right
+		+flex-size(50%)
+		+sm
+			+flex-size(100%)
+			text-align: center
+	&__left
+		position: relative
+		margin-top: -10px
+		padding-right: 20px
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: flex-end
+		+md
+			+flex-size(40%)
+		+sm
+			margin-bottom: 20px
+			padding-right: 0
+			justify-content: center
+			+flex-size(100%)
+		&:before
+			position: absolute
+			content: "=" 
+			right: -6px
+			top: 50%
+			margin-top: -5px
+			font-weight: 300 
+			font-size: 18px
+			line-height: 1
+			opacity: 0.6
+			+sm
+				display: none
+	&__right
+		padding-left: 20px
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		+md
+			+flex-size(60%)
+		+sm
+			padding-left: 0
+			flex-direction: column
+	&__buttons
+		display: inline-grid
+		+sm
+			display: block
+	&__text
+		padding-right: 10px 
+		padding-top: 5px 
+		max-width: calc(100% - 150px) 
+		+sm
+			margin-bottom: 20px
+			padding-right: 0
+			max-width: 100%
+	&__description
+		opacity: 0.4
+		margin-bottom: 7px
+	&__price
+		font-weight: 700 
+		font-size: 27px
+		opacity: 0.8
+		line-height: 1
+		text-transform: uppercase
+		+md
+			font-size: 24px
+		&:not(:last-child)
+			margin-bottom: 7px
+	&__old-price
+		position: relative
+		opacity: 0.4
+		font-size: 15px
+		text-transform: uppercase
+		vertical-align: top
+		display: inline-block
+		&:before
+			position: absolute
+			content: "" 
+			top: 50%
+			margin-top: -1px
+			width: 100%
+			height: 1px
+			background-color: $black 
+	&__addition
+		font-size: 16px
+	&__control
+		&:not(:first-child)
+			margin-top: 9px
+	&__info
+		display: flex
+		+flex-size(40%)
+		align-items: center
+		+lg
+			+flex-size(25%)
+		+md
+			margin-top: 20px
+			+flex-size(100%)
+			order: 2
+		+sm
+			justify-content: center
+	&__total
+		+flex-size(60%)
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: flex-end
+		+lg
+			+flex-size(75%)
+		+md
+			oreder: 1
+			justify-content: space-between
+			+flex-size(100%)
+		+sm
+			justify-content: center
+			flex-direction: column
+	&__devivery-image
+		img
+			max-height: 20px
+			display: block
+	&__devivery-content
+		padding-left: 10px
+		opacity: 0.8
+		
+.st-cost-cols
+	margin-right: 50px
+	font-size: 0
+	+sm
+		margin: 0 0 20px 
+		width: 100%
+	
+.st-cost-col
+	position: relative
+	font-size: 14px
+	line-height: 1.18
+	vertical-align: top
+	display: inline-block
+	+sm
+		text-align: center
+		display: block
+	&:not(:first-child)
+		padding-left: 48px
+		+sm
+			padding: 40px 0 0
+		&:before
+			position: absolute
+			content: "" 
+			top: 0
+			height: 100%
+			left: 23px
+			width: 1px
+			opacity: 0.5
+			background-color: #979797 
+			+sm
+				top: 19px
+				left: 0
+				width: 100%
+				height: 1px
+	&__head
+		opacity: 0.4
+	&__body
+		font-size: 27px
+		font-weight: 300 
+		opacity: 0.7

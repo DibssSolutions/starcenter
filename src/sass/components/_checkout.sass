@@ -1,56 +1,171 @@
 .st-checkout
+  padding: 20px 0 43px
+  &__title-md
+    margin-bottom: 20px
   &__wrap
     display: flex
     flex-wrap: wrap
   &__left 
-    max-width: 308px
-    flex-basis: 308px
+    +flex-size(308px)
+    +md
+      margin-bottom: 20px
+      +flex-size(100%)
   &__right
-    flex-grow: 1
+    +flex-size(calc(100% - 308px))
     padding-left: 21px
+    +md
+      padding-left: 0
+      flex-grow: initial 
+      +flex-size(100%)
 
 .st-optionst-info
   .is-car-open &
     display: none
 
 .st-optionst-fields
+  padding-left: 18px
   display: none
   .is-car-open &
     display: block
 
-.st-product-head,
+.st-checkout-head,
 .st-product-row,
 .st-product-field
   display: flex
   align-items: center
 
+.st-product-table
+  overflow: auto
+.st-checkout-head
+  padding: 0 23px 0 20px
+  min-width: 626px
+  color: $blue
+  font-size: 14px
+  font-weight: 500 
+  font-family: 'Roboto', sans-serif 
+  &:not(:last-child)
+    margin-bottom: 12px
+
+.st-product-field
+  padding: 0 23px 0 20px
+  min-width: 626px
+  min-height: 82px
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+  font-weight: 400 
+  color: #666 
+  justify-content: space-between
+  border-radius: 10px
+  border: 1px solid #DADADA
+  +lg
+    padding: 0 10px
+    font-size: 14px 
+  &:not(:last-child)
+    margin-bottom: 16px
+.st-product-inner
+  width: calc(100% - 33px)
+  +lg
+    width: calc(100% - 20px) 
+.st-product-row
+  padding: 21px 0
+  .st-checkout-head &
+    padding: 9px 0 0
+  .st-product-out &
+    padding: 8px 0 0
+.st-product-btn-delete
+  position: relative
+  background-color: transparent
+  font-size: 15px
+  line-height: 1
+  color: #FF6C6C
+  display: inline-block 
+  &:before
+    position: absolute
+    content: "" 
+    top: -5px
+    right: -5px
+    left: -5px
+    bottom: -5px
+
+.st-product-col
+  padding-left: 10px
+  span
+    .st-checkout-head &
+      line-height: 1.2
+  &:not(:first-child)
+    span
+      .st-checkout-head &
+        margin: 0 -10px
+        display: block
+        max-width: 100px
+        text-align: center
+  &:first-child
+    font-weight: 500 
+    +flex-size(47.6%)
+    +lg
+      +flex-size(45%)
+    .st-product-out &
+      +lg
+        font-size: 12px
+  &:nth-child(2)
+    +flex-size(21%)
+    span
+      text-align: center
+      .st-checkout-head &
+        margin: 0
+  &:nth-child(3)
+    +flex-size(18.8%)
+.st-product-out 
+  padding: 14px 0 17px 
+  font-size: 13px
+  border-top: 1px solid rgba(#979797, .5)
+  &__title
+    padding-left: 10px
+    color: $orange
+    font-weight: 400 
 .st-optionst
-  padding: 15px
+  padding: 18px 16px 16px
   border-radius: $radius
   background-color: rgba(#e9e7e7, 0.47)
   &__label
-    margin-bottom: 11px
+    padding-left: 10px
     color: $greyText
     font-family: 'Roboto', sans-serif
     font-size: 14px
     font-weight: 500
+    &:not(:first-child)
+      margin-top: 20px
+    &:not(:last-child)
+      margin-bottom: 13px
+    &_area
+      padding-left: 0
+      &:not(:last-child)
+        margin-bottom: 7px
 
 .st-optionst-hero
+  position: relative
+  margin-bottom: 21px
+  padding: 0 6px
+  z-index: 1
   display: flex
   justify-content: space-between
   align-items: center
-  padding: 0 6px
-  margin-bottom: 17px
+  &__wrap
+    &.is-car-open
+      & ~ .st-form-control .textarea
+        height: 121px
 
 .st-optionst-item
+  position: relative
+  padding: 18px 10px 10px
+  width: calc(50% - 14px) 
+  height: 95px
+  cursor: pointer
+  user-select: none
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
-  width: 118px
-  height: 95px
-  padding: 10px
-  position: relative
   border-radius: $radius
   background-color: $white
   text-align: center
@@ -59,26 +174,44 @@
     opacity: 0
     visibility: hidden
     width: 0
-    &:checked ~ span:last-child:after
+    &:checked ~ .st-optionst-item__text:after,
+    &:checked ~ .st-optionst-item__text:before
+      opacity: 1
+      visibility: visible
+  &__image
+    margin-bottom: 4px
+    display: block
+  &__text
+    display: block
+    max-width: 63px
+    color: #666666
+    font-family: 'Roboto', sans-serif
+    font-size: 12px
+    font-weight: 400
+    line-height: 1
+    &:after
+      content: ''
+      +coverdiv
+      background-color: transparent
+      border-radius: $radius
       border: 2px solid $blueInput
-  &__item
-    margin-bottom: 7px
-  span
-    &:last-child
-      display: inline-block
-      max-width: 63px
-      color: #666666
-      font-family: 'Roboto', sans-serif
-      font-size: 12px
-      font-weight: 400
-      line-height: 1
-      &:after
-        content: ''
-        +coverdiv
-        background-color: transparent
-        border-radius: $radius
-        border: 2px solid transparent
-        transition: border-color 0.3s
+      transition: opacity 0.3s, visibility .3s
+      pointer-events: none
+      opacity: 0
+      visibility: hidden
+    &:before
+      position: absolute
+      content: "" 
+      z-index: -1
+      top: 25%
+      left: 10%
+      width: 80%
+      height: 70%
+      opacity: 0
+      pointer-events: none
+      visibility: hidden
+      border-radius: 20px
+      box-shadow: 0 12px 25px rgba($black, .25)
 
 .st-optionst-info
   display: flex
@@ -102,9 +235,25 @@
 .st-form-control
   &:not(:last-child)
     margin-bottom: 9px
+.textarea
+  padding: 10px
+  border-radius: 10px
+  color: #666 
+  font-family: 'Roboto', sans-serif
+  font-size: 13px
+  width: 100%
+  resize: none
+  border: none
+  height: 154px
+  display: inline-block
 
 .st-radio
   position: relative
+  cursor: pointer
+  line-height: 1.28
+  font-size: 14px
+  vertical-align: top
+  display: inline-block
   input[type="radio"]
     position: absolute
     opacity: 0
@@ -136,8 +285,53 @@
       background-color: transparent
   .icon
     position: absolute
-    left: 3px
-    top: 4px
-    font-size: 7px
+    left: 4px
+    top: 5px
+    font-size: 6px
     color: $white
     +fadeout(0.3s)
+
+.st-choose
+  width: 100%
+  width: 99px
+  vertical-align: top
+  align-items: center
+  text-align: center
+  justify-content: space-between
+  display: inline-flex
+  span
+    width: 100%
+    display: block
+  &__plus,
+  &__minus
+    position: relative
+    color: $blue
+    line-height: 1
+    background-color: transparent 
+    font-size: 0
+    &:before
+      position: absolute
+      content: "" 
+      top: 50%
+      left: 50%
+      margin: -10px 0 0 -10px
+      width: 20px
+      height: 20px
+  &__minus 
+    .icon
+      font-size: 2px
+  &__plus
+    .icon
+      font-size: 12px
+  &__input
+    width: 35px
+    height: 28px
+    padding: 2px 5px
+    font-weight: 900 
+    color: #666 
+    text-align: center
+    font-family: 'Roboto', sans-serif
+    font-size: 16px
+    border: 1px solid rgba(#3C3C3C, .34)
+    border-radius: 4px 
+    display: inline-block

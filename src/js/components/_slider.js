@@ -20,7 +20,15 @@ parent.each((i,el) => {
     asNavFor: mainSlider,
     focusOnSelect: true,
     prevArrow: prevButton,
-    nextArrow: nextButton
+    nextArrow: nextButton,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 4,
+        }
+      }
+    ]
   });
 });
 
