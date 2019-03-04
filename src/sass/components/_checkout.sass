@@ -1,24 +1,143 @@
 .st-checkout
-	&__wrap
-		display: flex
-		flex-wrap: wrap
-	&__left 
-		max-width: 308px
-		flex-basis: 308px
-	&__right
-		flex-grow: 1
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+  &__left 
+    max-width: 308px
+    flex-basis: 308px
+  &__right
+    flex-grow: 1
+    padding-left: 21px
 
 .st-optionst-info
-	.is-car-open &
-		display: none
+  .is-car-open &
+    display: none
 
 .st-optionst-fields
-	display: none
-	.is-car-open &
-		display: block
+  display: none
+  .is-car-open &
+    display: block
 
 .st-product-head,
 .st-product-row,
 .st-product-field
-	display: flex
-	align-items: center
+  display: flex
+  align-items: center
+
+.st-optionst
+  padding: 15px
+  border-radius: $radius
+  background-color: rgba(#e9e7e7, 0.47)
+  &__label
+    margin-bottom: 11px
+    color: $greyText
+    font-family: 'Roboto', sans-serif
+    font-size: 14px
+    font-weight: 500
+
+.st-optionst-hero
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 6px
+  margin-bottom: 17px
+
+.st-optionst-item
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 118px
+  height: 95px
+  padding: 10px
+  position: relative
+  border-radius: $radius
+  background-color: $white
+  text-align: center
+  input[type="checkbox"]
+    position: absolute
+    opacity: 0
+    visibility: hidden
+    width: 0
+    &:checked ~ span:last-child:after
+      border: 2px solid $blueInput
+  &__item
+    margin-bottom: 7px
+  span
+    &:last-child
+      display: inline-block
+      max-width: 63px
+      color: #666666
+      font-family: 'Roboto', sans-serif
+      font-size: 12px
+      font-weight: 400
+      line-height: 1
+      &:after
+        content: ''
+        +coverdiv
+        background-color: transparent
+        border-radius: $radius
+        border: 2px solid transparent
+        transition: border-color 0.3s
+
+.st-optionst-info
+  display: flex
+  align-items: center
+  margin: 0 7px
+  font-size: 0
+  padding: 7px 10px
+  border-radius: 19px
+  background-color: rgba(#d8d8d8, 0.69)
+  .icon
+    font-size: 23px
+    color: $white
+  &__text
+    padding-left: 7px
+    color: $greyText
+    font-family: 'Roboto', sans-serif
+    font-size: 11px
+    line-height: 1
+    font-weight: 400
+
+.st-form-control
+  &:not(:last-child)
+    margin-bottom: 9px
+
+.st-radio
+  position: relative
+  input[type="radio"]
+    position: absolute
+    opacity: 0
+    visibility: hidden
+    width: 0
+    &:checked 
+      ~ .st-radio__text:after
+        background-color: $blueInput
+      ~ .icon
+        +fadein
+  &__text
+    display: inline-block
+    padding-left: 23px
+    color: $greyText
+    font-family: 'Roboto', sans-serif
+    font-size: 12px
+    font-weight: 500
+    .st-radio_blue &
+      color: $blueInput
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      height: 16px
+      width: 16px
+      border-radius: 50%
+      border: 1px solid $blueInput
+      background-color: transparent
+  .icon
+    position: absolute
+    left: 3px
+    top: 4px
+    font-size: 7px
+    color: $white
+    +fadeout(0.3s)
