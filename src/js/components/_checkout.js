@@ -8,6 +8,7 @@ class Checkout {
     this.radioOptions = $('.js-st-radio-option');
     this.radioCheckedOption = $('.js-st-radio-option:checked');
     this.finalCostWrap = $('.js-st-final-devivery-html');
+    this.finalCostImage = $('.js-st-final-devivery-image');
     this.table = $('.js-st-product-table');
     this.templateContainer;
     this.carOpenClass = 'is-car-open';
@@ -19,6 +20,10 @@ class Checkout {
       const input = $(el);
       input.on('change', () => {
         if (input.is(':checked')) {
+          const parent = input.parents('.js-st-optionst-item');
+          const img = parent.find('img').clone();
+
+          this.finalCostImage.html(img);
           this.optionsWrap.removeClass(this.carOpenClass);
           this.templateContainer = $('.js-st-product-field-template');
           if (this.templateContainer) this.templateContainer.remove();
@@ -46,7 +51,11 @@ class Checkout {
   optionsCheck() {
     this.radioOptions.each((i,el) => {
       const radio = $(el);
-      
+      radio.on('change', () => {
+        this.templateContainer = $('.js-st-product-field-template');
+        this.templateContainer.remove();
+        this.radioData(radio);
+      });
     });
   }
   radioData(radio) {
@@ -54,22 +63,18 @@ class Checkout {
     const priceContent = radio.data('price-block-html');
     const newPrice = radio.data('table-new-price');
     const oldPrice = radio.data('table-old-price');
-    console.log(tableContent);
     let htmlTemplate = this.renderTemplate('st-template', {
       title: tableContent,
       newPrice: newPrice,
       oldPrice: oldPrice
     });
     this.table.append(htmlTemplate);
+    this.finalCostWrap.html(priceContent);
   }
   carDelivery(input) {
     if (input.is(':checked')) {
-      const parent = input.parents('.js-st-optionst-item');
-      const img = parent.find('img').clone();
-      // console.log(this.radioCheckedOption);
       this.radioData(this.radioCheckedOption);
       this.optionsWrap.addClass(this.carOpenClass);
-      
     }
     else {
       this.templateContainer = $('.js-st-product-field-template');
@@ -81,6 +86,7 @@ class Checkout {
     this.allInputsReview();
     this.carDelivery(this.inputCar);
     this.carInput();
+    this.optionsCheck();
   }
 }
 
