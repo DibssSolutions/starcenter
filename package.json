@@ -64,5 +64,12 @@
     "through2": "^2.0.1",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^1.5.3"
+  },
+  "dependencies": {
+    "dotdotdot": "^1.7.0",
+    "es5-shim": "^4.5.12",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^4.5.0",
+    "tiny-slider": "^2.9.1"
   }
 }

@@ -23,22 +23,8 @@ export const LOAD_DATA = props => {
   xhr.send();
 };
 
-export const INIT_SLIDER = slider => {
-  return slider.on('init', () => {
-    setTimeout(() => {
-      slider.addClass(LOADED);
-    }, 200);
-  });
-};
-
 export const IS_FUNC = func => {
   return (typeof func != 'function') ? false : true;
-};
-
-export const SCROLL_TO = position => {
-  HTMLBODY.animate({
-    scrollTop: position
-  }, 700);
 };
 
 export const GET_RANDOM = (min, max) => {

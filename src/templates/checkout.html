@@ -1,0 +1,215 @@
+---
+title: Checkout page
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	<!-- begin st-wpap -->
+	<div class="st-wrap">
+		<form action="/">
+			<!-- begin st-checkout -->
+			<div class="st-checkout">
+				<div class="st-checkout__inner st-inner">
+					<h2 class="st-title-md">Mi carrito</h2>
+					<div class="st-checkout__wrap">
+						<div class="st-checkout__left">
+							<!-- begin st-optionst -->
+							<div class="st-optionst js-st-optionst">
+								<div class="st-optionst__label">Selecciona una opción:</div>
+								<div class="st-optionst-hero js-st-optionst-hero">
+									<label class="st-optionst-item js-st-optionst-item">
+										<input type="checkbox" name="st-optionst-car" class="js-st-optionst-car">
+										<span class="st-optionst-item__item">
+											<img src="./img/car.svg" alt="img">
+										</span>
+										<span>Que me loenvíen</span>
+									</label>
+									<label class="st-optionst-item js-st-optionst-item">
+										<input type="checkbox" name="st-optionst-package" class="js-st-optionst-package">
+										<span class="st-optionst-item__item">
+											<img src="./img/package.svg" alt="img">
+										</span>
+										<span>Lo retiro en sucursal</span>
+									</label>
+								</div>
+								<div class="st-optionst-hero__wrap js-st-optionst-hero-wrap">
+									<div class="st-optionst-info">
+										{{ mixins.icon('alert') }}
+										<div class="st-optionst-info__text">
+											Horario de retiro de pedidos: de Lunes a Viernes de 9 a 17hs.
+										</div>
+									</div>
+									<div class="st-optionst-fields js-st-optionst-fields">
+										<div class="st-form-control">
+											<label class="st-radio">
+												<input 
+													class="js-st-radio-option"
+													type="radio" 
+													name="st-radio" 
+													id="st-radio-1" 
+													data-table-html="Envío a Cassinoni 1011"
+													data-table-new-price = "USD 10"
+													data-table-old-price = "USD 12"
+													data-price-block-html="Te enviaremos tu compra a <span class='st-text-medium'>Cassinoni 1011</span>"
+													checked
+													>
+												<span class="st-radio__text">Cassinoni 1011</span>
+												{{ mixins.icon('check') }}
+											</label>
+										</div>
+										<div class="st-form-control">
+											<label class="st-radio">
+												<input 
+													class="js-st-radio-option"
+													type="radio" 
+													name="st-radio" 
+													id="st-radio-2"
+													data-table-html="Avenida Italia 2456, Apto 2004"
+													data-table-new-price = "USD 10"
+													data-table-old-price = "USD 12"
+													data-price-block-html="Avenida Italia 2456, Apto 2004"
+													>
+												<span class="st-radio__text">Avenida Italia 2456, Apto 2004</span>
+												{{ mixins.icon('check') }}
+											</label>
+										</div>
+										<div class="st-form-control">
+											<label class="st-radio st-radio_blue">
+												<input 
+													class="js-st-radio-option"
+													type="radio" 
+													name="st-radio" 
+													id="st-radio-3"
+													data-table-html="Ingresar nueva dirección"
+													data-table-new-price = "USD 10"
+													data-table-old-price = "USD 12"
+													data-price-block-html="Ingresar nueva dirección"
+													>
+												<span class="st-radio__text"></span>
+												{{ mixins.icon('check') }}
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="st-optionst__label">Comentarios</div>
+								<div class="st-form-control">
+									<textarea name="textarea" class="textarea"></textarea>
+								</div>
+							</div>
+							<!-- end st-optionst -->
+						</div>
+						<div class="st-checkout__right">
+							<div class="st-product-table js-st-product-table">
+								<div class="st-product-head">
+									<div class="st-product-row">
+										<div class="st-product-col" data-label="Productos">Productos</div>
+										<div class="st-product-col" data-label="Cantidad">Cantidad</div>
+										<div class="st-product-col" data-label="Precio unitario sin imp.">Precio unitario sin imp.</div>
+										<div class="st-product-col" data-label="Precio total imp. incluídos">Precio total imp. incluídos</div>
+									</div>
+								</div>
+								<div class="st-product-field">
+									<div class="st-product-inner">
+										<div class="st-product-row">
+											<div class="st-product-col" data-label="Productos">CELULAR HUAWEI MATE 20 PRO BLACK</div>
+											<div class="st-product-col" data-label="Cantidad">
+												<div class="st-choose js-st-choose" data-max-number="9">
+			                                        <button class="st-choose__minus js-st-minus" type="button">-</button>
+			                                        <input type="text" class="st-choose__input" value="1" readonly>
+			                                        <button class="st-choose__plus js-st-plus" type="button">+</button>
+			                                    </div>
+											</div>
+											<div class="st-product-col" data-label="Precio unitario sin imp.">USD 477,01</div>
+											<div class="st-product-col" data-label="Precio total imp. incluídos">USD 581,95</div>
+										</div>
+										<div class="st-product-out">
+											<div class="st-product-out__title">Promocionales seleccionados:</div>
+											{% for i in range(0,2) %}
+											<div class="st-product-row">
+												<div class="st-product-col" data-label="Productos">MOTOROLA MOD JBL SOUNDBOOST 2.0- SERIE Z</div>
+												<div class="st-product-col" data-label="Cantidad">1</div>
+												<div class="st-product-col" data-label="Precio unitario sin imp.">USD 98,00</div>
+												<div class="st-product-col" data-label="Precio total imp. incluídos">USD 98,00</div>
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+									<button class="st-product-btn-delete js-st-product-btn-delete" type="button">
+										{{ mixins.icon('delete') }}
+									</button>
+								</div>
+								{% for i in range(0,2) %}
+								<div class="st-product-field">
+									<div class="st-product-inner">
+										<div class="st-product-row">
+											<div class="st-product-col" data-label="Productos">CELULAR HUAWEI MATE 20 PRO BLACK</div>
+											<div class="st-product-col" data-label="Cantidad">
+												<div class="st-choose js-st-choose" data-max-number="9">
+			                                        <button class="st-choose__minus js-st-minus" type="button">-</button>
+			                                        <input type="text" class="st-choose__input" value="1" readonly>
+			                                        <button class="st-choose__plus js-st-plus" type="button">+</button>
+			                                    </div>
+											</div>
+											<div class="st-product-col" data-label="Precio unitario sin imp.">USD 477,01</div>
+											<div class="st-product-col" data-label="Precio total imp. incluídos">USD 581,95</div>
+										</div>
+									</div>
+									<button class="st-product-btn-delete js-st-product-btn-delete" type="button">
+										{{ mixins.icon('delete') }}
+									</button>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end st-checkout -->
+			<!-- begin st-final-cost -->
+			<div class="st-final-cost js-st-final-cost">
+				<div class="st-final-cost__inner st-inner">
+					<div class="js-st-final-devivery-html">
+						
+					</div>
+					<div class="st-final-cost__left js-st-final-cost-left">
+						<div class="st-product-sm">
+							<div class="st-product-sm__bg" style="background-image: url(./img/small-stock-product-current.png);"></div>
+						</div>
+					</div>
+					<div class="st-final-cost__right">
+						<div class="st-final-cost__text">
+							<div class="st-final-cost__description">Precio final con descuento web</div>
+							<div class="st-final-cost__price">USD <span class="js-st-final-cost-price">460.01</span><span class="st-final-cost__addition">+ IVA</span></div>
+							<div class="st-final-cost__old-price">USD <span class="js-st-final-cost-old-price">463.74</span></div>
+						</div>
+						<div class="st-final-cost__buttons">
+							<div class="st-final-cost__control">
+								<button class="st-btn" type="submit">Comprar ahora</button>
+							</div>
+							<div class="st-final-cost__control">
+								<button class="st-btn st-btn_blue" type="button">Agregar al carrito</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end st-final-cost -->
+		</form>
+	</div>
+	<script type="html/tpl" id="st-template">
+	<div class="st-product-field js-st-product-field-template">
+		<div class="st-product-inner">
+			<div class="st-product-row">
+				<div class="st-product-col" data-label="Productos">{title}</div>
+				<div class="st-product-col" data-label="Cantidad"></div>
+				<div class="st-product-col" data-label="Precio unitario sin imp.">{newPrice}</div>
+				<div class="st-product-col" data-label="Precio total imp. incluídos">{oldPrice}</div>
+			</div>
+		</div>
+		<button class="st-product-btn-delete js-st-product-btn-delete" type="button">
+			{{ mixins.icon('delete') }}
+		</button>
+	</div>
+	</script>
+	<!-- end st-wpap -->
+{% endblock %}

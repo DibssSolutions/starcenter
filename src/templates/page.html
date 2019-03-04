@@ -4,47 +4,157 @@ title: Index page
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
-	
-	{# variable example #}
-	<h1>{{title}}</h1>
-
-	
-	{# partial example #}
-	{% include "partials/_header.html" %}
-
-	{# mixin example #}
-	{{mixins.icon('facebook')}}
-
-
-	{# checkbox exepmle #}
-	<p>{{ mixins.checkbox() }}</p>
-	<p>
-		{{ mixins.checkbox({
-			checked: true,
-			name: 'exemple-name',
-			text: 'checkbox-checked'
-		}) }}
-	</p>
-	{# radio exepmle #}
-	{{ mixins.checkbox({
-		name: 'exemple-name',
-		text: 'text',
-		radio: true
-	}) }}
-	
-
-	{# breadcrumbs exepmle #}
-	{{ mixins.breadcrumbs({
-		list: ['Главная','Внутренняя','Корзина']
-	}) }}
-
-
-	{# data usage example #}
-		{% import "data/data.html" as tests %}
-		
-		{% for test in tests.list %}
-		<li>{{test.title}}</li>
-		{% endfor %}
-	{# end of example #}
-
+	<!-- begin st-wpap -->
+	<div class="st-wrap">
+		<form action="/">
+			<div class="st-card">
+				<div class="st-card__inner st-inner">
+					<div class="st-card-prev-link">
+						<a href="#" class="st-link st-text-italic">< <span>Volver</span></a>
+					</div>
+					<!-- begin st-product -->
+					<div class="st-product">
+						<div class="st-product__wrap">
+							<div class="st-product__left">
+								<div class="st-slider-parent js-st-slider-parent">
+									<div class="st-slider js-st-product-slider">
+										{% for i in range(0,6) %}
+										<div class="st-slider__slide" style="background-image: url(./img/product-image.png);"></div>
+										{% endfor %}
+									</div>
+									<div class="st-slider-bottom">
+										<div class="st-slider-nav js-st-product-slider-nav">
+											{% for i in range(1,7) %}
+											<div class="st-slider-nav__slide js-st-slider-nav-slide">
+												<img src="./img/product-image-nav-{{ i }}.png" alt="img">
+											</div>
+											{% endfor %}
+										</div>
+										<div class="st-slider-nav-controls js-st-slider-nav-controls">
+											<button class="st-slider-nav-controls__prev js-st-slider-nav-prev" type="button">{{ mixins.icon('prev-arrow') }}</button>
+											<button class="st-slider-nav-controls__next js-st-slider-nav-next" type="button">{{ mixins.icon('next-arrow') }}</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="st-product__right">
+								<div class="st-product-head">
+									<h2 class="st-title">CELULAR MOTOROLA MOTO Z3 PLAY</h2>
+									<div class="st-present">
+										{{ mixins.icon('plus') }}
+										Cover de madera inglesa lustrada <span class="st-text-orange st-text-medium">de regalo</span>
+									</div>
+								</div>
+								<div class="st-description">
+									<h4 class="st-description__title">
+										Código: XT1929-6
+										<span class="st-description__separator">|</span>
+										<span class="st-description__stock">STOCK: 12</span>
+									</h4>
+									<div class="st-description__text js-st-description-text">
+										<div data-dot-height="110">
+											<p>Moto z3 play te ofrece una pantalla Max Vision Super AMOLED Full HD+ de 6" prácticamente sin bordes, que se extiende de extremo a extremo. Ya sea para ver un maratón de programas o leer tu blog favorito, el texto y las imágenes se destacarán con negros profundos y colores vivos.</p>
+											<p>MÁS INTELIGENCIA EN UN SOLO CLICK: Cámara trasera doble, selfies de 8 MP y reconocimiento de lugares y objetos.</p>
+											<p>UN LOOK INCREÍBLE: Gracias a sus bordes suaves y redondeados y al cristal Corning® Gorilla® Glass con curvatura 2.5D, es uno de los smartphones de gama alta más delgados del mercado. Su diseño es impresionante.</p><p>Ve corriendo a trabajar o a clase por la mañana. Reúnete con tus amigos por la tarde. Después, relájate y disfruta de tus programas favoritos antes de acostarte. La batería integrada de 3000 mAh está diseñada para durar todo el día, por lo que no tendrás que preocuparte de recargar el teléfono sobre la marcha*.</p>
+											<p>ESPECIFICACIONES</p>
+											<p>PANTALLA: 6” FHD (2160x1080)</p>
+											<p>S.O: Android 8.0 Oreo</p>
+											<p>CPU: Octa Core 1.8 GHz </p>
+											<p>RAM: 4 GB</p>
+											<p>ROM: 64 GB </p>
+											<p>Expansión MicroSD hasta 2 TB</p>
+											<p>CÁMARA: Dual: 12 MP (f/1.7, 1.4µm, DP PDAF) + 5 MP, dual pixel, dual-LED dual-tone flash</p>
+											<p>Batería Li-Po 3000 mAh </p>
+											<p>Desbloqueo con Huella Dactilar</p>
+											<p>Carga Rápida</p>
+											<p>LIBRE PARA TODAS LAS COMPAÑÍAS</p>
+											<p>GARANTÍA: 1 Año</p>
+										</div>
+										<a class="st-description__trigger js-st-description-trigger" data-dot-open="<span>Leer más</span> +" data-dot-close="<span>Ver menos</span> -" href="#"><span>Leer más</span> +</a>
+									</div>
+								</div>
+								<div class="st-stock">
+									<h4 class="st-stock__title">
+										{{ mixins.icon('discount') }}
+										Opcionales en promoción
+									</h4>
+									<div class="st-stock__row">
+										{% for item in [
+											{
+												image: 'stock-product-1.png',
+												title: 'JBL Soundboost 2.0- Serie Z',
+												smallImage: 'small-stock-product-1.png',
+												price: '17.00'
+											},
+											{
+												image: 'stock-product-2.png',
+												title: 'Batería externa Argom 2019',
+												smallImage: 'small-stock-product-2.png',
+												price: '4.71'
+											},
+											{
+												image: 'stock-product-3.png',
+												title: 'Case Motorola Wooden Vibes 2',
+												smallImage: 'small-stock-product-3.png',
+												price: '8.67'
+											}
+										] %}
+											<div class="st-stock__col">
+											<label class="st-stock-item js-st-stock-item">
+												<input 
+												class="js-st-stock-input" 
+												type="checkbox" 
+												name="{{ item.title }}" 
+												data-small-image="./img/{{ item.smallImage }}"
+												data-last-price="{{ item.price - 1 }}"
+												data-old-price="{{ item.price }}"
+												>
+												<span class="st-stock-item__wrap">
+													<span class="st-stock-item__image" style="background-image: url(./img/{{ item.image }});"></span>
+													<span class="st-stock-item__title">{{ item.title }}</span>
+												</span>
+												<span class="st-stock-item__price">USD {{ item.price }}</span>
+												<span class="st-stock-item__check">
+													{{ mixins.icon('check') }}
+												</span>
+											</label>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end st-product -->
+				</div>
+			</div>
+			<!-- begin st-final-cost -->
+			<div class="st-final-cost js-st-final-cost">
+				<div class="st-final-cost__inner st-inner">
+					<div class="st-final-cost__left js-st-final-cost-left">
+						<div class="st-product-sm">
+							<div class="st-product-sm__bg" style="background-image: url(./img/small-stock-product-current.png);"></div>
+						</div>
+					</div>
+					<div class="st-final-cost__right">
+						<div class="st-final-cost__text">
+							<div class="st-final-cost__description">Precio final con descuento web</div>
+							<div class="st-final-cost__price">USD <span class="js-st-final-cost-price">460.01</span><span class="st-final-cost__addition">+ IVA</span></div>
+							<div class="st-final-cost__old-price">USD <span class="js-st-final-cost-old-price">463.74</span></div>
+						</div>
+						<div class="st-final-cost__buttons">
+							<div class="st-final-cost__control">
+								<button class="st-btn" type="submit">Comprar ahora</button>
+							</div>
+							<div class="st-final-cost__control">
+								<button class="st-btn st-btn_blue" type="button">Agregar al carrito</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end st-final-cost -->
+		</form>
+	</div>
+	<!-- end st-wpap -->
 {% endblock %}
