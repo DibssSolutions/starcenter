@@ -38,17 +38,18 @@
   overflow: auto
 .st-checkout-head
   padding: 0 23px 0 20px
-  min-width: 626px
   color: $blue
   font-size: 14px
   font-weight: 500 
   font-family: 'Roboto', sans-serif 
+  +sm
+    display: none
   &:not(:last-child)
     margin-bottom: 12px
 
 .st-product-field
+  position: relative
   padding: 0 23px 0 20px
-  min-width: 626px
   min-height: 82px
   font-family: 'Roboto', sans-serif
   font-size: 16px
@@ -60,14 +61,21 @@
   +lg
     padding: 0 10px
     font-size: 14px 
+  +sm
+    display: block
   &:not(:last-child)
     margin-bottom: 16px
 .st-product-inner
   width: calc(100% - 33px)
   +lg
     width: calc(100% - 20px) 
+  +sm
+    width: 100%
 .st-product-row
   padding: 21px 0
+  +sm
+    padding: 37px 0 34px
+    flex-wrap: wrap
   .st-checkout-head &
     padding: 9px 0 0
   .st-product-out &
@@ -79,6 +87,10 @@
   line-height: 1
   color: #FF6C6C
   display: inline-block 
+  +sm
+    position: absolute
+    top: 40px
+    right: 24px
   &:before
     position: absolute
     content: "" 
@@ -88,7 +100,15 @@
     bottom: -5px
 
 .st-product-col
+  position: relative
   padding-left: 10px
+  &:before
+    position: relative
+    content: attr(data-label)
+    font-size: 11px
+    display: none
+    +sm
+     display: block
   span
     .st-checkout-head &
       line-height: 1.2
@@ -104,17 +124,36 @@
     +flex-size(47.6%)
     +lg
       +flex-size(45%)
+    +sm
+      padding-right: 35px
+      padding-bottom: 20px
+      +flex-size(100%)
+      font-size: 16px
     .st-product-out &
       +lg
+        padding-bottom: 10px
         font-size: 12px
   &:nth-child(2)
     +flex-size(21%)
+    +sm
+      +flex-size(38%)
+    &:before
+      +sm
+        width: 99px
+        text-align: center
+      +r(408)
+        width: 86px 
     span
       text-align: center
       .st-checkout-head &
         margin: 0
   &:nth-child(3)
     +flex-size(18.8%)
+    +sm
+      +flex-size(31%)
+  &:nth-child(4)
+    +sm
+      +flex-size(31%)
 .st-product-out 
   padding: 14px 0 17px 
   font-size: 13px
@@ -299,6 +338,8 @@
   text-align: center
   justify-content: space-between
   display: inline-flex
+  +r(408)
+    width: 86px 
   span
     width: 100%
     display: block
